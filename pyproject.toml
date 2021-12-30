@@ -1,0 +1,9 @@
+[build-system]
+requires = [
+    "python-netbox",
+    "napalm",
+    "paramiko",
+    "setuptools>=42",
+    "isort",
+]
+build-backend = "setuptools.build_meta"

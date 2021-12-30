@@ -1,0 +1,95 @@
+# NetBox
+
+# FQDN/IP of netbox host
+NETBOX_HOST = "netbox.example.com"
+# Token with read/write permissions to netbox
+NETBOX_TOKEN = "my_token"
+# Max threads to use when querying netbox
+NETBOX_THREADS = 16
+# Args to establish netbox connection
+NETBOX_ARGS = {
+    "host": NETBOX_HOST,
+    "auth_token": NETBOX_TOKEN,
+    "use_ssl": True,
+    "ssl_verify": True,
+}
+# Args to include in all netbox queries
+NETBOX_QUERY_ARGS = {
+    "status": "active",
+}
+
+
+# Prime Infrastructure
+
+# FQDN/IP of PI host
+PRIME_HOST = "172.16.16.10"
+# PI username
+PRIME_USERNAME = "my_username"
+# PI password
+PRIME_PASSWORD = "my_password"
+
+
+# Netmiko / NAPALM
+
+# Username to log into devices with
+NETWORK_USERNAME = "my_username"
+# Password to log into devices with
+NETWORK_PASSWORD = "my_password"
+# SSH config file to use
+SSH_CONFIG_FILE = "~/.ssh/config"
+# Max threads to use when querying network devices
+NETWORK_THREADS = 32
+# Path to NTC templates
+NTC_TEMPLATES_PATH = "/usr/local/lib/python3.9/site-packages/ntc_templates/templates"
+
+# Default timeout (sec)
+# All timeouts default to this unless overridden below
+DEFAULT_TIMEOUT = 30
+
+# Authentication timeout
+# Leave None to use DEFAULT_TIMEOUT
+AUTH_TIMEOUT = None
+
+# Timeout reading SSH protocol banner
+# Leave None to use DEFAULT_TIMEOUT
+BANNER_TIMEOUT = None
+
+# Connection timeout
+# TODO: Document these timeouts
+# Leave None to use DEFAULT_TIMEOUT
+CONNECTION_TIMEOUT = None
+SESSION_TIMEOUT = None
+TIMEOUT = None
+
+
+# Set defaults
+AUTH_TIMEOUT = AUTH_TIMEOUT or DEFAULT_TIMEOUT
+BANNER_TIMEOUT = BANNER_TIMEOUT or DEFAULT_TIMEOUT
+CONNECTION_TIMEOUT = CONNECTION_TIMEOUT or DEFAULT_TIMEOUT
+SESSION_TIMEOUT = SESSION_TIMEOUT or DEFAULT_TIMEOUT
+TIMEOUT = TIMEOUT or DEFAULT_TIMEOUT
+
+# Default netmiko args
+NETMIKO_ARGS = {
+    "ip": None,
+    "username": NETWORK_USERNAME,
+    "password": NETWORK_PASSWORD,
+    "device_type": None,
+    "ssh_config_file": SSH_CONFIG_FILE,
+    "auth_timeout": AUTH_TIMEOUT,
+    "banner_timeout": BANNER_TIMEOUT,
+    "conn_timeout": CONNECTION_TIMEOUT,
+    "session_timeout": SESSION_TIMEOUT,
+    "timeout": TIMEOUT,
+}
+
+# Default NAPALM args
+NAPALM_ARGS = {
+    'hostname': None,
+    'username': NETWORK_USERNAME,
+    'password': NETWORK_PASSWORD,
+    'timeout': DEFAULT_TIMEOUT,
+    'optional_args': {
+        'ssh_config_file': SSH_CONFIG_FILE,
+    },
+}
