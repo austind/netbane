@@ -1,9 +1,8 @@
 from typing import Any, Dict, Optional
 
-from netbane import get_network_driver
-
 from nornir.core.configuration import Config
 
+from netbane import get_network_driver
 
 CONNECTION_NAME = "netbane"
 

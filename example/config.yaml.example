@@ -1,0 +1,24 @@
+---
+
+inventory:
+  plugin: NetBoxInventory2
+  transform_function: netbox_transform
+  options:
+    nb_url: https://netbox.example.com
+    nb_token: 55f9a31ff6a87d9c0246a94c75a42ed294e2f56d
+    ssl_verify: True
+    use_platform_slug: True
+    filter_parameters:
+      has_primary_ip: True
+
+runner:
+  plugin: threaded
+  options:
+    num_workers: 32
+
+ssh:
+  config_file: ~/.ssh/config
+
+logging:
+  log_file: nornir.log
+  level: DEBUG

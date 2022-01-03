@@ -1,4 +1,7 @@
 config.py
+config.yaml
+defaults.yaml
+nornir.log
 __pycache__/
 *.swp
 *.egg*
